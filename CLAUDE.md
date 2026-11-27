@@ -21,7 +21,7 @@ Berlaku untuk setiap template baru dan setiap perombakan template lama.
 
 5. **Aset hanya domain publik atau CC0.** Catat sumber dan lisensinya di `assets/img/CREDITS.md`. Jangan menggambar ilustrasi dengan kode. Jangan menyalin desain atau aset pesaing: contoh boleh ditiru alurnya, bukan gambarnya.
    - Pengecualian: ilustrasi buatan pengguna sendiri (misalnya dari proyek Google Stitch milik pengguna) boleh dipakai. Catat asalnya di `CREDITS.md`. Aturan 3 dan 6 tetap berlaku: gambar yang tampak seperti foto asli tidak dipakai.
-6. **Isi aset harus bersih.** Tidak boleh ada bendera, logo, teks, tanda tangan, atau cap yang ikut terlihat.
+6. **Isi aset harus bersih.** Tidak boleh ada bendera, logo, teks, tanda tangan, atau cap yang ikut terlihat. Pengecualian: logo bank atau dompet digital di kartu tanda kasih boleh, karena itu isi, bukan hiasan.
 7. **Bagian wajib.** Setiap template punya bagian "Kisah Kami" dan "Momen Kami" dengan judul persis seperti itu (`UK.sg.TITLES`).
 8. **Hiasan tidak boleh menutupi isi.** Tombol, nama, dan teks penting selalu di atas hiasan dan bisa diketuk. Kontras teks minimal 4.5:1. Target ketuk minimal 44 px. Foto dan hiasan tidak boleh bersentuhan atau saling menumpang: beri jarak minimal 12 px, termasuk saat hiasan bergerak.
 9. **Ringan dimuat.** Gambar dikompres (latar JPG, potongan transparan PNG), dimuat malas di luar layar pertama. Usahakan total aset satu template di bawah sekitar 3 MB.

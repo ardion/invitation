@@ -5,7 +5,22 @@ window.UK = window.UK || {};
 
 /* Naikkan setiap kali file JS/CSS diubah, supaya browser tamu mengambil versi baru.
    Samakan juga dengan ?v= di demo.html, index.html, katalog.html. */
-UK.version = '41';
+UK.version = '46';
+
+/* Naikkan setiap kali file JS/CSS diubah, supaya browser tamu mengambil versi baru.
+   Samakan juga dengan ?v= di demo.html, index.html, katalog.html. */
+
+/* Naikkan setiap kali file JS/CSS diubah, supaya browser tamu mengambil versi baru.
+   Samakan juga dengan ?v= di demo.html, index.html, katalog.html. */
+
+/* Naikkan setiap kali file JS/CSS diubah, supaya browser tamu mengambil versi baru.
+   Samakan juga dengan ?v= di demo.html, index.html, katalog.html. */
+
+/* Naikkan setiap kali file JS/CSS diubah, supaya browser tamu mengambil versi baru.
+   Samakan juga dengan ?v= di demo.html, index.html, katalog.html. */
+
+/* Naikkan setiap kali file JS/CSS diubah, supaya browser tamu mengambil versi baru.
+   Samakan juga dengan ?v= di demo.html, index.html, katalog.html. */
 
 /* Naikkan setiap kali file JS/CSS diubah, supaya browser tamu mengambil versi baru.
    Samakan juga dengan ?v= di demo.html, index.html, katalog.html. */
@@ -212,6 +227,7 @@ UK.sample = {
     ],
     events: [{ n: 'Akad Nikah', t: '08.00 WIB' }, { n: 'Resepsi', t: '11.00 – 14.00 WIB' }],
     place: 'Gedung Serbaguna Kenanga, Yogyakarta', bank: { name: 'Bank Contoh', no: '0000 0000 00', owner: 'Diky Pratama' },
+    banks: [{ name: 'BCA', logo: 'bca', no: '0000 0000 00', owner: 'Diky Pratama' }, { name: 'Bank Mandiri', logo: 'mandiri', no: '1111 2222 33', owner: 'Yuni Lestari' }],
     /* Kisah Kami: contoh, diganti cerita pasangan saat dipesan */
     story: [
       { y: '2019', t: 'Pertama bertemu', d: 'Kami berkenalan di sebuah acara kampus di Yogyakarta. Obrolan singkat sore itu ternyata berlanjut panjang.' },

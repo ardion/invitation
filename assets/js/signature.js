@@ -8,7 +8,7 @@
 
    Kontrak tiap layout:
      html(c)   -> string HTML (wajib punya #cover, #open-btn, #guest-name, #inv,
-                  #cd, #rsvp, #wishes, #copy, #rek-no lewat c.parts)
+                  #cd, #rsvp, #wishes lewat c.parts; tanda kasih memakai .rek > .rek-no + .copy)
      intro()   -> animasi diam di sampul
      open(fn)  -> animasi buka sampul, panggil fn saat selesai
      watch()   -> animasi isi undangan (scroll)

@@ -74,3 +74,14 @@ Semua gambar di folder ini adalah ilustrasi buatan pengguna sendiri lewat proyek
 
 Gambar "pendopo malam" dan foto pasangan dari Stitch tidak dipakai karena tampak seperti foto asli. Foto pasangan di demo memakai `delima/` (dari folder `fotoprewed` pengguna).
 
+## bank/ (logo di kartu tanda kasih)
+
+| File | Asal | Lisensi |
+|---|---|---|
+| bca.svg | [Bank Central Asia.svg](https://commons.wikimedia.org/wiki/File:Bank_Central_Asia.svg), Wikimedia Commons | Domain publik |
+| mandiri.svg | [Bank Mandiri logo 2016.svg](https://commons.wikimedia.org/wiki/File:Bank_Mandiri_logo_2016.svg), Wikimedia Commons | Domain publik |
+| bni.svg | [Bank Negara Indonesia logo (2004) (cropped).svg](https://commons.wikimedia.org/wiki/File:Bank_Negara_Indonesia_logo_(2004)_(cropped).svg), Wikimedia Commons | Domain publik |
+| bri.svg | [Bank Rakyat Indonesia.svg](https://commons.wikimedia.org/wiki/File:Bank_Rakyat_Indonesia.svg), Wikimedia Commons | Domain publik |
+
+Logo adalah merek dagang bank masing-masing. Dipakai hanya untuk menunjukkan bank tujuan transfer.
+

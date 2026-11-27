@@ -164,7 +164,7 @@
 .pp .pp-end { position: relative; overflow: hidden; padding: 72px 24px 190px; background: #fbf2ef; }
 .pp-end > .pp-vale { opacity: .3; mix-blend-mode: multiply; -webkit-mask: linear-gradient(transparent, #000 30%); mask: linear-gradient(transparent, #000 30%); }
 .pp-end > :not(.pp-vale):not(.pp-tree):not(.pp-bf):not(.pp-petals):not(.sg-credit) { position: relative; z-index: 5; }
-.pp-end .pp-tree { width: 32%; z-index: 2; }
+.pp-end .pp-tree { width: 32%; z-index: 6; }
 .pp-end .pp-tree.l { left: -6%; }
 .pp-end .pp-tree.r { right: -6%; }
 .pp-pair { display: flex; align-items: flex-end; justify-content: center; gap: 12px; margin-top: 26px; height: 250px; }
@@ -175,3 +175,25 @@
 /* kelopak melati */
 .pp-petals { position: absolute; inset: 0; z-index: 4; pointer-events: none; overflow: hidden; perspective: 600px; }
 .pp-petals i { position: absolute; top: 0; width: 10px; height: 13px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; opacity: 0; background: radial-gradient(circle at 40% 35%, #fff, #f1e6d8 75%); box-shadow: 0 1px 2px rgba(49,23,10,.15); }
+
+/* tanda kasih: tombol buka, lalu kartu digeser satu-satu */
+.pp-gift-wrap { max-width: 340px; margin: 22px auto 0; }
+.pp-gift-box { margin-top: 18px; }
+.pp-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; border-radius: 18px; }
+.pp-track::-webkit-scrollbar { display: none; }
+.pp .pp-rek { position: relative; flex: 0 0 100%; scroll-snap-align: center; scroll-snap-stop: always; margin: 0; padding: 30px 22px 26px; background: #fff8f6; color: #1f1b19; border: 1px solid #c59b5f; border-radius: 18px; font-family: 'Raleway', sans-serif; }
+.pp .pp-rek::before { content: ""; position: absolute; inset: 6px; border: 1px solid rgba(197,155,95,.45); border-radius: 13px; pointer-events: none; }
+.pp-rek-bank { font-size: 14px; color: #6e5a52; }
+.pp-rek-logo { display: block; height: 26px; width: auto; max-width: 120px; margin: 0 0 12px auto; object-fit: contain; }
+.pp .pp-rek .rek-no { display: block; margin: 6px 0 4px; font: 500 26px 'Red Hat Mono', monospace; letter-spacing: .06em; color: #31170a; font-variant-numeric: tabular-nums; }
+.pp-rek-own { font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; color: #4a2c1d; }
+.pp .pp-rek .pp-btn { margin-top: 16px; }
+.pp-dots { display: flex; justify-content: center; margin-top: 4px; }
+.pp-dots button { display: grid; place-items: center; width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer; }
+.pp-dots i { width: 8px; height: 8px; border-radius: 50%; background: rgba(233,220,213,.4); }
+.pp-dots [aria-current] i { width: 22px; border-radius: 999px; background: #c59b5f; }
+.pp-dots button:focus-visible { outline: 2px solid #fff8f6; outline-offset: -8px; border-radius: 999px; }
+/* latar tanda kasih: lukisan lembah dibuat terang samar di atas sogan, tepinya memudar */
+.pp .pp-gift { padding-bottom: calc(36cqw + 40px); container-type: inline-size; }
+.pp-dark > .pp-vale.dim { position: absolute; inset: 0; z-index: 0; opacity: .2; mix-blend-mode: screen; filter: sepia(.6) contrast(1.1); -webkit-mask: linear-gradient(transparent, #000 30%, #000 70%, transparent); mask: linear-gradient(transparent, #000 30%, #000 70%, transparent); }
+.pp-dark > .pp-ml { position: absolute; }

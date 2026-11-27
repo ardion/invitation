@@ -33,6 +33,8 @@
     return s;
   }
   function tree(pos) { return '<div class="pp-tree ' + pos + '" aria-hidden="true">' + img('pohon.png') + '</div>'; }
+  /* pohon penutup dengan kupu-kupu di dalamnya: kupu-kupu ikut bergeser & bergoyang bersama pohonnya */
+  function treeB(pos) { return '<div class="pp-tree ' + pos + '" aria-hidden="true">' + img('pohon.png') + bflies(1) + '</div>'; }
   function gunungan(cls) { return '<div class="pp-gn ' + (cls || '') + '" aria-hidden="true">' + img('gunungan.png') + '</div>'; }
   function melati(pos) { return '<div class="pp-ml ' + pos + '" aria-hidden="true">' + img('melati.png') + '</div>'; }
   /* bingkai: empat sudut emas diambil dari satu gambar, tengahnya warna kayu, tepi dalam memudar */
@@ -47,6 +49,45 @@
   }
   function photo(src, label, cls) {
     return '<div class="pp-ph ' + (cls || '') + '"><div class="pp-ph-in" style="background-image:url(' + src + ')" role="img" aria-label="' + label + '"></div></div>';
+  }
+
+  /* tanda kasih: tersembunyi dulu, muncul setelah tombol ditekan. Kartu rekening digeser kiri-kanan,
+     satu kartu penuh per layar (tanpa potongan kartu sebelah), titik di bawah menunjukkan posisi.
+     Kelas rek / rek-no / copy dipakai tombol salin bersama di invitation.js. */
+  function gift(c) {
+    var banks = c.e.banks || [c.e.bank];
+    var cards = banks.map(function (b) {
+      /* b.logo = kode bank (mis. 'bca') -> assets/img/bank/<kode>.svg; tanpa logo, nama bank ditulis */
+      var head = b.logo ? '<img class="pp-rek-logo" src="assets/img/bank/' + b.logo + '.svg" alt="' + UK.esc(b.name) + '">' : '<p class="pp-rek-bank">' + UK.esc(b.name) + '</p>';
+      return '<div class="rek pp-rek">' + head + '<b class="rek-no">' + b.no + '</b>' +
+        '<p class="pp-rek-own">a.n. ' + UK.esc(b.owner) + ' (contoh)</p>' +
+        '<button class="pp-btn sm copy" type="button">' + UK.icon('copy', 16) + '<span>Salin nomor</span></button></div>';
+    }).join('');
+    var dots = banks.length > 1 ? '<div class="pp-dots" role="group" aria-label="Pilih rekening">' + banks.map(function (b, i) {
+      return '<button type="button" data-i="' + i + '" aria-label="Rekening ' + UK.esc(b.owner) + '"' + (i ? '' : ' aria-current="true"') + '><i></i></button>';
+    }).join('') + '</div>' : '';
+    return '<div class="pp-gift-wrap" data-rv><button class="pp-btn" id="pp-gift-btn" type="button" aria-expanded="false" aria-controls="pp-gift-box">' +
+      UK.icon('gift', 18) + 'Kirim tanda kasih</button>' +
+      '<div class="pp-gift-box" id="pp-gift-box" hidden><div class="pp-track">' + cards + '</div>' + dots + '</div></div>';
+  }
+  function giftSwitch() {
+    var btn = document.getElementById('pp-gift-btn'), box = document.getElementById('pp-gift-box');
+    if (!btn || !box) return;
+    var track = box.querySelector('.pp-track'), dots = box.querySelectorAll('.pp-dots button');
+    btn.addEventListener('click', function () {
+      var open = box.hidden;
+      box.hidden = !open;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open && motion()) gsap.fromTo(box, { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: 'power3.out' });
+    });
+    var mark = function () {
+      var i = Math.round(track.scrollLeft / (track.clientWidth + 16));
+      Array.prototype.forEach.call(dots, function (d, k) { if (k === i) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current'); });
+    };
+    track.addEventListener('scroll', function () { window.requestAnimationFrame(mark); });
+    Array.prototype.forEach.call(dots, function (d) {
+      d.addEventListener('click', function () { track.scrollTo({ left: (track.clientWidth + 16) * +d.getAttribute('data-i'), behavior: 'smooth' }); });
+    });
   }
 
   L.html = function (c) {
@@ -112,10 +153,12 @@
         /* 7. momen kami */
         '<section class="pp-sec pp-gal-sec">' + bflies(2) + '<h2 class="pp-h" data-rv>' + S.TITLES.moments + '</h2><div class="pp-gal">' + gal + '</div></section>' +
         '<section class="pp-sec alt"><h2 class="pp-h" data-rv>Ucapan &amp; doa</h2><div data-rv>' + c.parts.rsvp + '</div></section>' +
-        '<section class="pp-teal pp-gift"><h2 class="pp-h light" data-rv>Tanda kasih</h2>' +
-          '<p class="pp-lead light" data-rv>Doa restu Anda adalah hadiah terbaik. Bila ingin berbagi tanda kasih, dapat melalui:</p><div data-rv>' + c.parts.gift + '</div></section>' +
+        /* tanda kasih: gelap sogan, lukisan lembah samar di belakang, melati di bawah */
+        '<section class="pp-dark pp-gift"><div class="pp-vale dim" style="background-image:url(' + A + 'lembah.jpg)"></div>' + melati('bot') +
+          '<h2 class="pp-h light" data-rv>Tanda kasih</h2>' +
+          '<p class="pp-lead light" data-rv>Doa restu Anda adalah hadiah terbaik. Bila ingin berbagi tanda kasih, dapat melalui:</p>' + gift(c) + '</section>' +
         /* penutup: lembah, gunungan, wayang berdua */
-        '<footer class="pp-end"><div class="pp-vale" style="background-image:url(' + A + 'lembah.jpg)"></div>' + petals(9) + tree('l') + tree('r') + bflies(2) +
+        '<footer class="pp-end"><div class="pp-vale" style="background-image:url(' + A + 'lembah.jpg)"></div>' + petals(9) + treeB('l') + treeB('r') +
           '<p class="pp-lead" data-rv>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>' +
           '<h2 class="pp-names sm" data-rv>' + namesOf(e, ' <span>&amp;</span> ') + '</h2>' +
           '<div class="pp-pair">' + wayang('putra', 'end') + gunungan('mid') + wayang('putri', 'end') + '</div>' +
@@ -175,6 +218,7 @@
 
   L.intro = function () {
     heroDone = false;
+    giftSwitch();
     run(function () {
       puppet('.pp-cover .pp-wy');
       gsap.timeline({ defaults: { ease: 'power3.out' } })
@@ -226,48 +270,54 @@
   }
 
   /* titik hinggap di pohon: diambil dari piksel daun yang benar-benar pekat (bukan bagian transparan),
-     di sepertiga atas pohon, lalu dipetakan ke koordinat penutup. Pohon kanan dicerminkan lewat CSS. */
-  function perchSpots(tree, E, minY, cb) {
-    var src = tree.querySelector('img').src, im = new Image();
+     di separuh atas pohon. Koordinat relatif terhadap kotak pohon; pohon kanan dicerminkan lewat CSS. */
+  function perchSpots(tree, minY, cb) {
+    var im = new Image();
     im.onload = function () {
       var W = im.naturalWidth, H = im.naturalHeight, c = document.createElement('canvas');
       c.width = W; c.height = H;
       var g = c.getContext('2d'); g.drawImage(im, 0, 0);
-      var d = g.getImageData(0, 0, W, H).data, b = tree.getBoundingClientRect(), sx = b.width / W, sy = b.height / H;
-      var flip = tree.classList.contains('r'), pts = [];
+      var d = g.getImageData(0, 0, W, H).data, tw = tree.offsetWidth, th = tree.offsetHeight, sx = tw / W, sy = th / H;
+      var flip = tree.classList.contains('r'), left = tree.offsetLeft, vw = tree.parentNode.offsetWidth, pts = [];
       for (var y = Math.round(H * 0.08); y < H * 0.5; y += 6) {
         for (var x = 10; x < W - 10; x += 6) {
           var solid = true;
           for (var dy = -6; dy <= 6 && solid; dy += 6) for (var dx = -6; dx <= 6; dx += 6) if (d[((y + dy) * W + x + dx) * 4 + 3] < 200) { solid = false; break; }
           if (!solid) continue;
-          var px = (flip ? W - x : x) * sx + b.left - E.left, py = y * sy + b.top - E.top;
-          if (px > 26 && px < E.width - 26 && py > minY) pts.push([px, py]);
+          var px = (flip ? W - x : x) * sx, py = y * sy;
+          /* tetap di dalam layar dan di bawah pasangan wayang */
+          if (left + px > 26 && left + px < vw - 26 && py > minY) pts.push([px, py]);
         }
       }
       cb(pts);
     };
-    im.src = src;
+    im.src = tree.querySelector('img').src;
   }
 
-  /* penutup: tiap kupu-kupu punya pohon sendiri. Terbang di sekitar daun, hinggap tepat di daun sambil
-     mengepak pelan, lalu terbang lagi di pohon yang sama (tidak pindah ke pohon seberang). */
+  /* penutup: tiap kupu-kupu tinggal di pohonnya sendiri. Terbang di sekitar daun, hinggap tepat di daun
+     sambil mengepak pelan, lalu terbang lagi. Dihitung ulang bila ukuran layar berubah. */
+  var flitTimer = null;
   function treeFlit() {
     var e = document.querySelector('.pp-end');
     if (!e) return;
-    var E = e.getBoundingClientRect(), m = 46;
-    var pairB = e.querySelector('.pp-pair').getBoundingClientRect().bottom - E.top;
-    gsap.utils.toArray('.pp-end .pp-bf').forEach(function (bf, k) {
-      var tree = e.querySelector(k % 2 ? '.pp-tree.r' : '.pp-tree.l');
-      perchSpots(tree, E, pairB + m, function (spots) {
+    gsap.utils.toArray('.pp-end .pp-tree').forEach(function (tree, k) {
+      var bf = tree.querySelector('.pp-bf');
+      if (!bf) return;
+      var wings = bf.querySelectorAll('.w');
+      gsap.killTweensOf([bf].concat(Array.prototype.slice.call(wings)));
+      gsap.set(bf, { autoAlpha: 0 });
+      /* batas atas: dasar pasangan wayang + setengah kupu-kupu + jarak 12px, relatif terhadap pohon */
+      var minY = e.querySelector('.pp-pair').offsetTop + e.querySelector('.pp-pair').offsetHeight - tree.offsetTop + 46;
+      perchSpots(tree, minY, function (spots) {
         if (!spots.length) return;
         run(function () {
           var o = { duration: 0.15 + k * 0.03, ease: 'sine.inOut', yoyo: true, repeat: -1 };
-          var flap = [gsap.fromTo(bf.querySelector('.w.l'), { rotationY: 0 }, Object.assign({ rotationY: 70 }, o)),
-                      gsap.fromTo(bf.querySelector('.w.r'), { rotationY: 0 }, Object.assign({ rotationY: -70 }, o))];
-          /* terbang: titik sekitar daun, sedikit di luar tajuk */
-          var near = function () { var p = gsap.utils.random(spots); return [p[0] + R(-22, 22), Math.max(pairB + m, p[1] + R(-26, 10))]; };
+          var flap = [gsap.fromTo(wings[0], { rotationY: 0 }, Object.assign({ rotationY: 70 }, o)),
+                      gsap.fromTo(wings[1], { rotationY: 0 }, Object.assign({ rotationY: -70 }, o))];
+          var near = function () { var p = gsap.utils.random(spots); return [p[0] + R(-22, 22), Math.max(minY, p[1] + R(-26, 10))]; };
           var pos = gsap.utils.random(spots), start = pos;
           gsap.set(bf, { x: pos[0], y: pos[1] });
+          gsap.to(bf, { autoAlpha: 1, duration: 0.8 });
           var go = function (tl, p, d) {
             var ang = Math.atan2(p[1] - pos[1], p[0] - pos[0]) * 180 / Math.PI + 90;
             tl.to(bf, { rotation: ang, duration: 0.35, ease: 'sine.inOut' }).to(bf, { x: p[0], y: p[1], duration: d, ease: 'sine.inOut' }, '<');
@@ -285,12 +335,12 @@
             for (var i = 0; i < 3; i++) go(tl, near(), R(1.1, 1.6));
             perch(tl);
           }
-          /* kembali ke titik awal (juga titik hinggap) supaya putaran berikutnya menyambung tanpa lompat */
           go(tl, start, R(1.4, 2));
         });
       });
     });
   }
+  function onResize() { clearTimeout(flitTimer); flitTimer = setTimeout(treeFlit, 300); }
 
   L.watch = function () {
     if (!motion()) return;
@@ -299,6 +349,8 @@
       flutter('.pp-story', [[0.05, 0.25, 0.02, 0.08], [0.75, 0.95, 0.02, 0.08]]);
       flutter('.pp-gal-sec', [[0.05, 0.25, 0.01, 0.07], [0.75, 0.95, 0.01, 0.07]]);
       treeFlit();
+      window.removeEventListener('resize', onResize);
+      window.addEventListener('resize', onResize);
       puppet('#inv .pp-wy');
       sway('#inv .pp-gn', 2); sway('#inv .pp-tree', 1.5); sway('#inv .pp-ml', 1.2);
       fall('.pp-end');

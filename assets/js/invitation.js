@@ -92,9 +92,11 @@
           '<div class="ok" id="rsvp-ok" role="status" hidden>Terima kasih, ucapanmu sudah tampil di bawah.</div>' +
         '</form>' +
         '<div class="wishes" id="wishes" aria-live="polite"></div>',
-      gift:
-        '<div class="rek"><small>' + e.bank.name + '</small><b id="rek-no">' + e.bank.no + '</b><small>a.n. ' + UK.esc(e.bank.owner) + ' (contoh)</small><br>' +
-        '<button class="pbtn light" type="button" id="copy">' + UK.icon('copy', 18) + '<span>Salin nomor</span></button></div>'
+      /* e.banks = [{name, no, owner}, ...] untuk beberapa rekening; bila tidak ada, pakai e.bank */
+      gift: (e.banks || [e.bank]).map(function (b) {
+        return '<div class="rek"><small>' + UK.esc(b.name) + '</small><b class="rek-no">' + b.no + '</b><small>a.n. ' + UK.esc(b.owner) + ' (contoh)</small><br>' +
+          '<button class="pbtn light copy" type="button">' + UK.icon('copy', 18) + '<span>Salin nomor</span></button></div>';
+      }).join('')
     };
 
     /* Template dengan layout sendiri (assets/js/signature.js) */
@@ -214,10 +216,13 @@
       setTimeout(function () { var ok = $('rsvp-ok'); if (ok) ok.hidden = true; }, 4000);
     });
 
-    $('copy').addEventListener('click', function () {
-      var b = this, label = b.querySelector('span'), no = $('rek-no').textContent.replace(/\s/g, '');
-      var done = function (msg) { label.textContent = msg; setTimeout(function () { label.textContent = 'Salin nomor'; }, 2500); };
-      try { navigator.clipboard.writeText(no).then(function () { done('Tersalin'); }, function () { done(no); }); } catch (er) { done(no); }
+    /* tombol salin di tiap kartu rekening (kelas .copy, nomor di .rek-no pada kartu yang sama) */
+    Array.prototype.forEach.call(document.querySelectorAll('.copy'), function (b) {
+      b.addEventListener('click', function () {
+        var label = b.querySelector('span'), no = b.closest('.rek').querySelector('.rek-no').textContent.replace(/\s/g, '');
+        var done = function (msg) { label.textContent = msg; setTimeout(function () { label.textContent = 'Salin nomor'; }, 2500); };
+        try { navigator.clipboard.writeText(no).then(function () { done('Tersalin'); }, function () { done(no); }); } catch (er) { done(no); }
+      });
     });
 
     $('music').addEventListener('click', function () { audio ? stopMusic() : startMusic(); });
