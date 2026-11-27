@@ -5,7 +5,10 @@ window.UK = window.UK || {};
 
 /* Naikkan setiap kali file JS/CSS diubah, supaya browser tamu mengambil versi baru.
    Samakan juga dengan ?v= di demo.html, index.html, katalog.html. */
-UK.version = '46';
+UK.version = '47';
+
+/* Naikkan setiap kali file JS/CSS diubah, supaya browser tamu mengambil versi baru.
+   Samakan juga dengan ?v= di demo.html, index.html, katalog.html. */
 
 /* Naikkan setiap kali file JS/CSS diubah, supaya browser tamu mengambil versi baru.
    Samakan juga dengan ?v= di demo.html, index.html, katalog.html. */

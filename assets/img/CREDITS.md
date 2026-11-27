@@ -72,6 +72,8 @@ Semua gambar di folder ini adalah ilustrasi buatan pengguna sendiri lewat proyek
 | bingkai.jpg | Latar kayu cokelat dengan sudut emas | Hanya empat sudutnya yang dipakai |
 | putra-badan.png, putra-lengan.png, putri-badan.png, putri-lengan.png | Wayang putra dan putri | Bidang cokelat di antara lengan dihapus; lengan belakang dipotong terpisah dengan tepi dipudarkan |
 
+Semua gambar di folder ini diperbesar 4× dengan Real-ESRGAN (model realesr-animevideov3, BSD-3) lalu dikecilkan ke ukuran yang dibutuhkan dan disimpan sebagai PNG palet 256 warna. Isi dan rasio gambar tidak diubah.
+
 Gambar "pendopo malam" dan foto pasangan dari Stitch tidak dipakai karena tampak seperti foto asli. Foto pasangan di demo memakai `delima/` (dari folder `fotoprewed` pengguna).
 
 ## bank/ (logo di kartu tanda kasih)
