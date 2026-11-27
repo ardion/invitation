@@ -1,0 +1,124 @@
+/* =========================================================
+   GARDEN PARTY
+   Palet: daun malam #1f2a1f, linen #f6f0e4, cahaya bohlam #ffd88a, peoni #e8a3a0, merah peoni #a3282f, emas #d9a441
+   Huruf: Young Serif (judul) + Figtree (teks & UI). Rata kiri, santai.
+   ========================================================= */
+.gp-cover { justify-content: flex-end; align-items: stretch; background: #10160f; }
+/* kotak foto mengikuti rasio foto asli, supaya posisi bohlam tetap pas */
+.gp-scene { position: absolute; inset: 0; }
+.gp-photo { position: absolute; inset: 0; background-size: cover; background-position: 50% 40%; filter: brightness(.3) saturate(.7); }
+.gp-cover-lights { position: absolute; left: 0; right: 0; top: 7%; z-index: 2; pointer-events: none; }
+.gp-cover-lights .gp-lights { width: 100%; margin: 0; height: 190px; }
+.gp-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(16,22,15,0) 30%, rgba(16,22,15,.6) 62%, rgba(16,22,15,.9)); }
+.gp-cover-in { position: relative; z-index: 5; width: 100%; max-width: 480px; margin: 0 auto; padding: 0 26px max(150px, 21vh); color: #f6f0e4; }
+.gp-pre { font-family: 'Figtree', sans-serif; font-size: 14px; font-weight: 600; }
+.gp-cnames { font-family: 'Young Serif', serif; font-weight: 400; font-size: 54px; line-height: 1; margin: 10px 0 12px; }
+.gp-cnames span { display: block; font-size: 30px; color: #ffd88a; margin: 4px 0; }
+.gp-when { font-family: 'Figtree', sans-serif; font-size: 15px; margin-bottom: 16px; }
+.gp-to { margin-bottom: 18px; }
+.gp-to .sg-to { font-family: 'Figtree', sans-serif; font-size: 13px; opacity: .85; }
+.gp-to .sg-guest { font-family: 'Young Serif', serif; font-weight: 400; font-size: 24px; }
+.gp-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 50px; padding: 0 24px; border: 0; border-radius: 14px; background: #ffd88a; color: #1f2a1f; font: 700 15px 'Figtree', sans-serif; box-shadow: 0 0 30px rgba(255,216,138,.35); }
+.gp-btn:hover { background: #ffe3a8; }
+.gp-flowers { position: absolute; left: 0; right: 0; pointer-events: none; }
+.gp-flowers.gp-f-cover { bottom: 0; height: 17%; z-index: 4; }
+.gp-fl { position: absolute; will-change: transform; transform-origin: 50% 100%; }
+.gp-fl img { display: block; width: 100%; height: auto; filter: drop-shadow(0 8px 12px rgba(0,0,0,.3)); }
+
+.gp { font-family: 'Figtree', sans-serif; text-align: left; background: #f6f0e4; color: #253023; }
+.gp .gp-sec, .gp .gp-end { padding: 56px 26px 64px; }
+.gp-lights { display: block; width: calc(100% + 52px); height: 110px; margin: 0 -26px; overflow: visible; }
+.gp-hero { position: relative; min-height: 100svh; padding: 0 26px 60px; overflow: hidden; background: radial-gradient(ellipse at 20% 30%, #fffaf0, #f6f0e4 60%); }
+.gp-hero .gp-lights { margin-bottom: 14svh; }
+.gp-flowers.gp-f-hero { top: 0; bottom: 0; z-index: 1; }
+.gp-hero > :not(.gp-flowers):not(.gp-lights):not(.gp-dflies):not(.gp-petals) { position: relative; z-index: 2; }
+.gp-hero .gp-pre { color: #7b6a4c; }
+.gp-names { font-family: 'Young Serif', serif; font-weight: 400; font-size: 64px; line-height: 1; margin: 12px 0 16px; max-width: 7ch; }
+.gp-names span { display: block; }
+.gp-names .amp { font-size: 34px; color: var(--deep); margin: 6px 0; }
+.gp-date { font-size: 17px; font-weight: 600; }
+.gp-hash { font-size: 14px; color: var(--deep); margin-top: 4px; }
+
+.gp-quote-sec { position: relative; overflow: hidden; min-height: 70svh; display: flex; align-items: flex-end; color: #f6f0e4; background: #1f2a1f; }
+.gp-qbg { position: absolute; left: 0; right: 0; top: -10%; bottom: -10%; background-size: cover; background-position: 50% 50%; }
+.gp-qbg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(31,42,31,.05) 20%, rgba(31,42,31,.85) 80%); }
+.gp-quote { position: relative; z-index: 2; font-family: 'Young Serif', serif; font-size: 23px; line-height: 1.45; max-width: 24ch; }
+
+.gp-linen { background: #f6f0e4; }
+.gp-linen.alt { background: #ede4d2; }
+.gp-night { background: #1f2a1f; color: #f6f0e4; padding-top: 0 !important; }
+.gp-night .gp-lights { margin-bottom: 26px; height: 80px; }
+.gp-h { font-family: 'Young Serif', serif; font-weight: 400; font-size: 36px; line-height: 1.1; margin-bottom: 14px; }
+.gp-night .gp-h { color: #ffd88a; }
+.gp-lead { font-size: 16px; line-height: 1.7; max-width: 34ch; }
+
+/* foto digantung di tali */
+.gp-line { position: relative; margin: 26px -26px 0; padding: 0 16px; }
+.gp-cord { position: absolute; left: 0; top: 0; width: 100%; height: 40px; }
+.gp-hang { display: flex; justify-content: space-around; align-items: flex-start; gap: 10px; padding-top: 14px; }
+.gp-card { position: relative; flex: 0 1 46%; background: #fffdf7; padding: 8px 8px 12px; box-shadow: 0 12px 22px -12px rgba(37,48,35,.45); transform-origin: 50% 0; }
+.gp-card.g { flex-basis: 30%; padding-bottom: 8px; }
+.gp-peg { position: absolute; left: 50%; top: -12px; width: 10px; height: 26px; margin-left: -5px; border-radius: 3px; background: linear-gradient(90deg, #b88f5a, #d7b07a 50%, #a67c48); box-shadow: 0 2px 3px rgba(0,0,0,.25); z-index: 2; }
+.gp-ph { aspect-ratio: 3 / 4; background-size: 220% auto; display: flex; align-items: flex-end; padding: 6px; }
+.gp-ph.empty { flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #7b6a4c; background: radial-gradient(ellipse at 30% 20%, #fbf6ea, #e6dbc4); }
+.gp-ph.empty svg { width: 32px; height: 32px; }
+.gp-ph.empty span { background: none; color: #7b6a4c; padding: 0; }
+.gp-ph span { font-size: 10px; font-weight: 600; color: #fff; background: rgba(31,42,31,.55); padding: 3px 7px; border-radius: 999px; }
+.gp-card figcaption { margin-top: 10px; }
+.gp-card h3 { font-family: 'Young Serif', serif; font-weight: 400; font-size: 17px; line-height: 1.2; }
+.gp-card p { font-size: 12px; color: #6a6a5a; margin-top: 2px; }
+
+/* kartu meja */
+.gp-tent { position: relative; background: #fbf6ea; color: #253023; padding: 22px 20px; margin: 14px 0; border-radius: 4px; box-shadow: 0 14px 24px -14px rgba(0,0,0,.6);
+  background-image: linear-gradient(180deg, rgba(0,0,0,.06), transparent 14%); }
+.gp-tent.l { transform: rotate(-1.2deg); } .gp-tent.r { transform: rotate(1deg); }
+.gp-tent h3 { font-family: 'Young Serif', serif; font-weight: 400; font-size: 26px; }
+.gp-tent p { font-size: 15px; }
+.gp-time { font-weight: 700; color: var(--deep); }
+.gp-place { display: flex; gap: 8px; align-items: flex-start; font-size: 15px; margin: 22px 0 16px; }
+.gp .pbtn { border-radius: 14px; }
+.gp-cd .cd div { background: rgba(255,216,138,.1); border: 1px solid rgba(255,216,138,.35); text-align: center; }
+.gp-cd .cd b { font-family: 'Young Serif', serif; font-weight: 400; color: #ffd88a; }
+.gp .form input, .gp .form select, .gp .form textarea { border-radius: 10px; border-color: #c9b78f; background: #fffdf7; font-family: 'Figtree', sans-serif; }
+.gp .rek { background: rgba(255,216,138,.08); border: 1px solid rgba(255,216,138,.35); }
+
+.gp-end { position: relative; overflow: hidden; min-height: 70svh; padding-bottom: 220px !important; background: radial-gradient(ellipse at 30% 20%, #fffaf0, #f6f0e4 70%); }
+.gp-flowers.gp-f-end { bottom: 0; height: 240px; }
+.gp-end > :not(.gp-flowers):not(.gp-petals):not(.gp-dflies) { position: relative; z-index: 2; }
+.gp-end h2 { font-family: 'Young Serif', serif; font-weight: 400; font-size: 42px; line-height: 1.05; max-width: 10ch; }
+.gp-end p { font-size: 16px; line-height: 1.6; max-width: 30ch; margin-top: 10px; }
+.gp-sign { font-family: 'Young Serif', serif; font-size: 22px; color: var(--deep); }
+
+/* tepi bunga disamarkan */
+.gp-fl img { -webkit-mask-image: linear-gradient(to top, transparent 0, #000 20%); mask-image: linear-gradient(to top, transparent 0, #000 20%); }
+.gp-fl.k-peoni-merah img { -webkit-mask-image: linear-gradient(to top, transparent 0, #000 18%), linear-gradient(to right, transparent 0, #000 30%); -webkit-mask-composite: source-in; mask-image: linear-gradient(to top, transparent 0, #000 18%), linear-gradient(to right, transparent 0, #000 30%); mask-composite: intersect; }
+.gp-fl.k-hortensia img { -webkit-mask-image: linear-gradient(to top, transparent 0, #000 18%), linear-gradient(to left, transparent 0, #000 30%); -webkit-mask-composite: source-in; mask-image: linear-gradient(to top, transparent 0, #000 18%), linear-gradient(to left, transparent 0, #000 30%); mask-composite: intersect; }
+
+/* kunang-kunang & kelopak */
+.gp-flies { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.gp-flies i { position: absolute; width: 5px; height: 5px; border-radius: 50%; opacity: 0; background: #fff2b8; box-shadow: 0 0 10px 4px rgba(255,216,138,.7); }
+.gp-night { position: relative; overflow: hidden; }
+.gp-night > :not(.gp-flies) { position: relative; z-index: 2; }
+.gp-petals { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.gp-petals i { position: absolute; top: 0; width: 13px; height: 9px; border-radius: 60% 40% 60% 40%; opacity: 0; background: radial-gradient(circle at 30% 30%, #fbd9d6, #e8a3a0 70%); box-shadow: 0 2px 3px rgba(0,0,0,.08); }
+.gp-petals i.r { background: radial-gradient(circle at 30% 30%, #e46a6f, #a3282f 75%); width: 11px; height: 8px; }
+.gp-end > :not(.gp-flowers):not(.gp-petals):not(.gp-dflies) { position: relative; z-index: 2; }
+
+/* Kisah Kami: kartu bergantung bergantian kiri-kanan */
+.gp-stories { list-style: none; padding: 0; margin: 14px 0 0; }
+.gp-st { display: grid; grid-template-columns: 44% 1fr; gap: 18px; align-items: center; margin: 30px 0; }
+.gp-st:nth-child(even) { grid-template-columns: 1fr 44%; }
+.gp-st:nth-child(even) .gp-card { order: 2; }
+.gp-card.st { flex: none; width: 100%; }
+.gp-st-y { font-family: 'Young Serif', serif; font-size: 28px; color: var(--deep); }
+.gp-st h3 { font-family: 'Young Serif', serif; font-weight: 400; font-size: 20px; margin: 4px 0; }
+.gp-st p { font-size: 14px; line-height: 1.6; }
+
+/* capung di bagian terang: kertas putih hilang lewat multiply, sayap tetap tembus pandang */
+.gp-dflies { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; mix-blend-mode: multiply; }
+.gp-dfly { position: absolute; left: 0; top: 0; width: 74px; margin: -37px 0 0 -37px; }
+.gp-dfly img { display: block; width: 100%; height: auto; animation: gpbuzz .09s linear infinite alternate; }
+@keyframes gpbuzz { to { transform: scale(.97) translateY(.6px); } }
+.gp-dflies.story .gp-dfly, .gp-dflies.moments .gp-dfly { width: 60px; }
+.gp-story, .gp-moments { position: relative; overflow: hidden; }
+.gp-story > :not(.gp-dflies), .gp-moments > :not(.gp-dflies) { position: relative; z-index: 2; }

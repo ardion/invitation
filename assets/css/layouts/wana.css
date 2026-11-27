@@ -1,0 +1,129 @@
+/* =========================================================
+   KAYON WANA
+   Palet: taupe #8d7c6d, moka #76665a, krem #ece6dc, tinta #4a3f37, mauve #6d4c5c
+   Huruf: Marcellus (nama, kapital) + Cormorant Garamond (teks) + Great Vibes (aksen)
+   ========================================================= */
+.wn-cover { background: #8d7c6d; }
+.wn-stage { position: absolute; inset: 0; max-width: 480px; margin: 0 auto; overflow: hidden;
+  background: radial-gradient(120% 70% at 50% 40%, #9a8979, #7f6f62 80%); }
+.wn-world { position: absolute; inset: 0; background-size: cover; background-position: 50% 45%; filter: sepia(.25) saturate(.85); }
+.wn-window, .wn-birds { position: absolute; inset: 0; width: 100%; height: 100%; }
+.wn-window svg { width: 100%; height: 100%; display: block; }
+.wn-bird path { transform-box: fill-box; transform-origin: center; animation: wnflap .28s ease-in-out infinite alternate; }
+@keyframes wnflap { to { transform: scaleY(-.5); } }
+.wn-strip { position: absolute; top: 0; bottom: 0; width: 22px; z-index: 2; background-size: 28px; opacity: .55; pointer-events: none; }
+.wn-strip.l { left: 6px; } .wn-strip.r { right: 6px; }
+
+.wn-panel { position: absolute; left: 7%; right: 7%; top: 6%; height: 78%; z-index: 3; filter: drop-shadow(0 20px 30px rgba(40,30,22,.45)); }
+.wn-panel-art { position: absolute; inset: 0; background-size: cover; background-position: 50% 30%; -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+.wn-panel-rim { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.wn-panel-rim path { fill: none; stroke: #e6d6bd; stroke-width: 1.4; opacity: .85; }
+.wn-panel-in { position: relative; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 0 26px 24%; text-align: center; color: #f6efe4; }
+.wn-pre { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; letter-spacing: .02em; }
+.wn-cnames { font-family: 'Great Vibes', cursive; font-weight: 400; font-size: 44px; line-height: 1.1; margin: 0 0 10px; text-shadow: 0 2px 16px rgba(0,0,0,.4); }
+.wn-coval { width: 128px; height: 170px; border-radius: 50%; overflow: hidden; margin-bottom: 14px; flex: none; box-shadow: 0 0 0 2px rgba(246,239,228,.7), 0 0 0 7px rgba(246,239,228,.16); }
+.wn-panel-in .sg-to { font-family: 'Cormorant Garamond', serif; font-size: 16px; }
+.wn-panel-in .sg-guest { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 24px; margin: 0 0 14px; }
+.wn-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 22px; border-radius: 10px; border: 1px solid rgba(246,239,228,.8); background: rgba(246,239,228,.12); color: #fffaf2; font: 500 14px 'DM Sans', sans-serif; letter-spacing: .02em; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); transition: background-color .2s; }
+.wn-btn:hover { background: rgba(246,239,228,.26); }
+.wn-mist { position: absolute; left: -10%; right: -10%; top: -30%; height: 160%; z-index: 8; visibility: hidden; pointer-events: none;
+  background: repeating-linear-gradient(180deg, transparent 0 9px, rgba(180,166,146,.16) 9px 11px), linear-gradient(transparent, #efe8dd 16%, #f4eee5 50%, #efe8dd 84%, transparent); }
+
+/* tempat foto contoh */
+.wn-photo { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; font: 500 12px 'DM Sans', sans-serif; letter-spacing: .02em; }
+.wn-photo svg { width: 38px; height: 38px; }
+.wn-photo.o { color: rgba(246,239,228,.85); background: radial-gradient(circle at 50% 35%, rgba(246,239,228,.18), rgba(30,24,20,.35)), url(../../img/kayon/hutan-tegak.jpg) center / cover; }
+.wn-photo.g { color: #6f5f52; background: linear-gradient(170deg, #efe8de, #d9cfc2); }
+
+/* bunga & kupu-kupu */
+.wn-garland { position: absolute; left: 0; right: 0; pointer-events: none; z-index: 5; }
+.wn-garland.wn-g-cover { bottom: 0; height: 24%; }
+.wn-garland.wn-g-hero { bottom: 0; height: 30%; }
+.wn-garland.wn-g-top { top: 0; height: 120px; position: relative; margin: -72px -26px 24px; }
+.wn-garland.wn-g-end { bottom: 0; height: 180px; position: relative; margin: -40px -18px 0; }
+.wn-fl { position: absolute; will-change: transform; }
+.wn-fl img { display: block; width: 100%; height: auto; filter: drop-shadow(0 6px 10px rgba(40,30,22,.28)); }
+.wn-flies { position: absolute; inset: 0; z-index: 6; pointer-events: none; }
+.wn-bf { position: absolute; left: 50%; top: 42%; width: 58px; margin-left: -29px; }
+.wn-bf img { display: block; width: 100%; height: auto; transform-origin: 50% 50%; animation: wnwing .24s ease-in-out infinite alternate; filter: drop-shadow(0 4px 4px rgba(0,0,0,.2)); }
+.wn-flies.rest .wn-bf img { animation-duration: 1.6s; }
+@keyframes wnwing { to { transform: scaleX(.32); } }
+
+/* isi undangan */
+.wn { background: var(--paper); font-family: 'Cormorant Garamond', serif; }
+.wn-hero { min-height: 100svh; display: flex; align-items: center; justify-content: center; padding: 60px 34px 130px !important; overflow: hidden; }
+.wn-bg { position: absolute; left: 0; right: 0; top: -8%; bottom: -8%; background-size: cover; background-position: 60% 50%; filter: sepia(.3) saturate(.8) brightness(1.02); }
+.wn-veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(141,124,109,.25), rgba(236,230,220,.15) 50%, rgba(118,102,90,.45)); }
+.wn-bg.dim::after { content: ""; position: absolute; inset: 0; background: rgba(236,230,220,.62); }
+.wn-arch { position: relative; z-index: 3; width: 100%; max-width: 320px; min-height: 72svh; border-radius: 999px; padding: 50px 22px 80px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; color: #5b5047;
+  background: rgba(238,232,223,.66); -webkit-backdrop-filter: blur(2px) saturate(.8); backdrop-filter: blur(2px) saturate(.8);
+  box-shadow: 0 0 0 1px #a08c78, 0 0 0 7px rgba(238,232,223,.5), 0 0 0 8px #a08c78, 0 30px 60px -30px rgba(40,30,22,.6); }
+.wn-arch .wn-pre { font-style: normal; font-family: 'Marcellus', serif; font-size: 13px; letter-spacing: .26em; }
+.wn-names { font-family: 'Marcellus', serif; font-weight: 400; font-size: 56px; line-height: 1.06; margin: 14px 0 16px; text-transform: uppercase; letter-spacing: .02em; }
+.wn-names span { display: block; }
+.wn-names .amp { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 46px; text-transform: none; color: var(--deep); }
+.wn-date { font-family: 'Marcellus', serif; font-size: 17px; letter-spacing: .22em; }
+.wn-hash { font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: .18em; margin-top: 10px; }
+.wn-arch .mouse { border-color: #8d7c6d; }
+.wn-arch .mouse::after { background: #8d7c6d; }
+
+.wn-taupe { background: var(--bg); color: #f3ece2; }
+.wn-q { padding-top: 72px !important; }
+.wn-oval { width: 260px; height: 350px; border-radius: 50%; overflow: hidden; margin: 0 auto 30px; box-shadow: 0 0 0 3px rgba(243,236,226,.4), 0 0 0 10px rgba(243,236,226,.08); }
+.wn-quote { font-size: 20px; line-height: 1.65; font-style: italic; max-width: 32ch; margin: 0 auto; }
+.wn-src { font-family: 'DM Sans', sans-serif; font-size: 12px; letter-spacing: .14em; margin-top: 14px; opacity: .9; }
+.wn-orn { display: block; width: 230px; margin: 28px auto 0; color: #e8dccb; }
+
+.wn-scenic { padding: 64px 18px !important; }
+.wn-card { position: relative; z-index: 2; background: rgba(239,233,224,.95); border-radius: 160px 160px 28px 28px; padding: 64px 22px 40px; box-shadow: 0 0 0 1px #c9b9a3, 0 24px 40px -26px rgba(40,30,22,.55); color: var(--ink); }
+.wn-salam { font-weight: 600; font-size: 20px; margin-bottom: 8px; }
+.wn-lead { font-size: 19px; line-height: 1.6; max-width: 32ch; margin: 0 auto; }
+.wn-person { margin-top: 32px; display: flex; flex-direction: column; align-items: center; }
+.wn-gebyok { width: 220px; height: 300px; padding: 13px; border-radius: 110px 110px 6px 6px;
+  background: radial-gradient(circle, #6a584a 1.6px, transparent 2px) 0 0 / 9px 9px, linear-gradient(#3a2f28, #241d19);
+  box-shadow: inset 0 0 0 2px #a08c78, 0 16px 28px -14px rgba(0,0,0,.6); }
+.wn-gebyok > .wn-photo { border-radius: 98px 98px 2px 2px; box-shadow: 0 0 0 2px #b79f7f; }
+.wn-person h3 { font-family: 'Marcellus', serif; font-weight: 400; font-size: 25px; margin-top: 16px; }
+.wn-person p { font-family: 'DM Sans', sans-serif; font-size: 14px; opacity: .85; }
+.wn-amp { font-family: 'Great Vibes', cursive; font-size: 56px; color: var(--deep); margin: 16px 0 -8px; }
+
+.wn-head { margin-bottom: 22px; }
+.wn-head .script { display: block; font-size: 32px; color: var(--deep); }
+.wn-head h2 { font-family: 'Marcellus', serif; font-weight: 400; font-size: 30px; text-transform: uppercase; letter-spacing: .06em; }
+.wn-taupe .wn-head .script { color: #eadcc8; }
+.wn-ev { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.32); border-radius: 130px 130px 18px 18px; padding: 46px 18px 24px; margin: 16px 0; }
+.wn-ev h3 { font-family: 'Marcellus', serif; font-weight: 400; font-size: 27px; }
+.wn-ev p, .wn-place { display: flex; align-items: center; justify-content: center; gap: 8px; font-family: 'DM Sans', sans-serif; font-size: 15px; margin-top: 6px; }
+.wn-place { margin: 20px 0; }
+.wn-taupe .cd div { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.3); }
+.wn-taupe .rek { background: rgba(0,0,0,.16); }
+.wn-cream { background: var(--paper); }
+.wn-cream.alt { background: #e4dccf; }
+.wn-gal { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.wn-gal div { aspect-ratio: 3 / 4; display: grid; place-items: end start; padding: 10px; border-radius: 12px; background-size: 260% auto; filter: sepia(.25); }
+.wn-gal div span { font: 500 11px 'DM Sans', sans-serif; color: #fff; background: rgba(40,30,22,.45); padding: 3px 8px; border-radius: 999px; }
+.wn-gal div:first-child { grid-column: 1 / -1; aspect-ratio: 4 / 3; border-radius: 140px 140px 12px 12px; background-size: cover; }
+.wn .form input, .wn .form select, .wn .form textarea { font-family: 'Cormorant Garamond', serif; font-size: 17px; border-color: #b8a690; }
+
+.wn-end { padding: 80px 18px 0 !important; overflow: hidden; }
+.wn-end .wn-card h2 { font-family: 'Great Vibes', cursive; font-weight: 400; font-size: 52px; color: var(--deep); }
+.wn-end .wn-card p { font-size: 19px; line-height: 1.6; }
+.wn-sign { font-family: 'Marcellus', serif; font-size: 22px; margin-top: 14px; }
+.wn-credit { position: relative; z-index: 6; display: block; background: var(--bg); color: #f3ece2; margin: 0 -18px; padding: 14px 0 90px; font: 12px 'DM Sans', sans-serif; }
+
+/* tepi bunga disamarkan: pangkal batang memudar, tidak ada garis potong */
+.wn-fl img { -webkit-mask-image: linear-gradient(to top, transparent 0, #000 20%); mask-image: linear-gradient(to top, transparent 0, #000 20%); }
+
+/* Kisah Kami: garis waktu di tengah, foto & teks bergantian kiri-kanan */
+.wn-story { position: relative; }
+.wn-stories { list-style: none; position: relative; margin: 6px 0 0; padding: 0; }
+.wn-stories::before { content: ""; position: absolute; left: 50%; top: 10px; bottom: 10px; width: 1px; background: #b8a690; }
+.wn-st { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: center; margin: 28px 0; text-align: left; }
+.wn-st::after { content: ""; position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; border-radius: 50%; background: var(--deep); box-shadow: 0 0 0 4px var(--paper); }
+.wn-st:nth-child(even) .wn-st-ph { order: 2; }
+.wn-st:nth-child(even) .wn-st-body { text-align: right; }
+.wn-st-ph { aspect-ratio: 3 / 4; border-radius: 80px 80px 6px 6px; overflow: hidden; box-shadow: 0 0 0 1px #c9b9a3, 0 0 0 5px var(--paper), 0 0 0 6px #c9b9a3; }
+.wn-st-y { font-family: 'Marcellus', serif; font-size: 13px; letter-spacing: .2em; color: var(--deep); }
+.wn-st h3 { font-family: 'Marcellus', serif; font-weight: 400; font-size: 21px; margin: 4px 0 6px; }
+.wn-st p { font-size: 16px; line-height: 1.5; }

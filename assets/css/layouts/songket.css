@@ -1,0 +1,62 @@
+/* Rumah Gadang: tenun songket */
+.sk-cover { background: transparent; }
+.sk-half { position: absolute; left: 0; right: 0; height: 50%; background-color: #7a1a1c;
+  background-image: repeating-linear-gradient(90deg, rgba(0,0,0,.12) 0 2px, transparent 2px 6px), repeating-linear-gradient(0deg, rgba(212,166,58,.1) 0 1px, transparent 1px 16px); }
+.sk-half.top { top: 0; box-shadow: inset 0 -3px 0 #d4a63a; }
+.sk-half.bottom { bottom: 0; box-shadow: inset 0 3px 0 #d4a63a; }
+.sk-stage { position: relative; z-index: 2; width: min(330px, 88vw); display: flex; flex-direction: column; align-items: center; }
+.sk-weave { display: block; width: min(250px, 66vw); max-height: 46svh; height: auto; }
+.sk-info { margin-top: 10px; text-align: center; color: #f6ecd9; padding: 0 12px; }
+.sk-info .sg-pre { font-family: 'Jost', sans-serif; text-transform: none; letter-spacing: .14em; font-size: 13px; color: #e8c467; }
+.sk-info h1 { font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 40px; line-height: 1.05; margin: 6px 0 12px; }
+.sk-info h1 span { font-style: italic; color: #e8c467; padding: 0 6px; }
+.sk-info .sg-to { font-family: 'Jost', sans-serif; font-size: 13px; }
+.sk-info .sg-guest { font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 22px; margin-bottom: 14px; }
+.sk-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 24px; border: 1.5px solid #d4a63a; border-radius: 0; background: #1d1213; color: #f6ecd9; font: 500 15px 'Jost', sans-serif; letter-spacing: .04em; }
+.sk-btn:hover { background: #3a2224; }
+
+.sk { font-family: 'Jost', sans-serif; background: var(--paper); }
+.sk .sk-sec, .sk .sk-end { padding: 60px 26px; }
+.sk-hero { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: var(--bg); color: #f6ecd9; }
+.sk-hero .sk-cap { width: 220px; margin-bottom: 10px; }
+.sk-pre { font-size: 14px; letter-spacing: .14em; color: #e8c467; }
+.sk-names { font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 56px; line-height: 1.05; margin: 12px 0; }
+.sk-names span { display: block; font-style: italic; font-size: 34px; color: #e8c467; }
+.sk-date { font-size: 16px; letter-spacing: .08em; }
+.sk-hash { font-size: 14px; color: #e8c467; margin-top: 6px; }
+
+/* pita songket: emas di atas hitam */
+.sk-band { height: 26px; margin: 0 -26px 26px; background-color: #1d1213;
+  background-image: linear-gradient(135deg, transparent 40%, #d4a63a 40% 60%, transparent 60%), linear-gradient(45deg, transparent 40%, #d4a63a 40% 60%, transparent 60%);
+  background-size: 18px 26px; box-shadow: inset 0 3px 0 #d4a63a, inset 0 -3px 0 #d4a63a; }
+.sk-h { font-family: 'Bodoni Moda', serif; font-weight: 400; font-style: italic; font-size: 36px; color: var(--bg); margin-bottom: 18px; }
+.sk-quote { font-family: 'Bodoni Moda', serif; font-size: 20px; line-height: 1.6; max-width: 32ch; margin: 0 auto; }
+.sk-src { font-size: 13px; letter-spacing: .12em; color: var(--bg); margin-top: 12px; }
+.sk-lead { font-size: 16px; line-height: 1.7; max-width: 34ch; margin: 0 auto; }
+.sk-people, .sk-gallery, .sk-gift { background: #efdcbc; }
+
+.sk-person { display: flex; flex-direction: column; align-items: center; margin-top: 30px; }
+.sk-person .sk-cap { width: 230px; margin-bottom: -6px; position: relative; z-index: 2; }
+.sk-photo { width: 200px; height: 250px; border: 3px solid #d4a63a; outline: 6px solid var(--bg); overflow: hidden; }
+.sk-photo svg { width: 100%; height: 100%; display: block; }
+.sk-person h3 { font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 26px; margin-top: 18px; }
+.sk-person p { font-size: 14px; opacity: .85; }
+.sk-amp { font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 48px; color: var(--bg); margin: 16px 0 -8px; }
+
+.sk-ev { margin: 14px 0; padding: 22px; background: var(--deep); color: #f6ecd9; border: 1.5px solid #d4a63a; outline: 1px solid #d4a63a; outline-offset: -7px; }
+.sk-ev h3 { font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 28px; color: #e8c467; }
+.sk-ev p { font-size: 15px; margin-top: 2px; }
+.sk-place { display: flex; justify-content: center; gap: 8px; font-size: 15px; margin: 18px auto; max-width: 30ch; }
+.sk .pbtn { border-radius: 0; background: var(--bg); }
+.sk-cd .cd div { background: var(--deep); border-radius: 0; box-shadow: inset 0 0 0 1px #d4a63a; }
+
+.sk-gal { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.sk-gal div { aspect-ratio: 3 / 4; display: grid; place-items: center; background: linear-gradient(160deg, var(--bg), var(--deep)); box-shadow: inset 0 0 0 2px #d4a63a; }
+.sk-gal div:first-child { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
+.sk .form input, .sk .form select, .sk .form textarea { border-radius: 0; border-color: rgba(42,18,20,.4); font-family: 'Jost', sans-serif; }
+.sk .rek { background: var(--deep); border-radius: 0; box-shadow: inset 0 0 0 1px #d4a63a; }
+
+.sk-end { background: var(--bg); color: #f6ecd9; padding-bottom: 96px !important; }
+.sk-end .sk-band { margin-top: -60px; margin-bottom: 40px; }
+.sk-end h2 { font-family: 'Bodoni Moda', serif; font-weight: 400; font-style: italic; font-size: 46px; color: #e8c467; }
+.sk-end p { font-size: 16px; line-height: 1.7; max-width: 32ch; margin: 8px auto 0; }

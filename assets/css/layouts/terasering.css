@@ -1,0 +1,67 @@
+/* Hijau Parahyangan: sawah terasering */
+.tr-cover { justify-content: flex-start; background: #f7e8c8; }
+.tr-land, .tr-hland { position: absolute; inset: 0; width: 100%; height: 100%; }
+.tr-info { position: relative; z-index: 2; margin-top: 15vh; text-align: center; color: #1d3324; padding: 0 24px; }
+.tr-info .sg-pre { font-family: 'Karla', sans-serif; text-transform: none; letter-spacing: .08em; font-size: 15px; }
+.tr-info h1 { font-family: 'Yeseva One', serif; font-weight: 400; font-size: 46px; line-height: 1.05; margin: 6px 0 14px; }
+.tr-info .sg-to { font-family: 'Karla', sans-serif; }
+.tr-info .sg-guest { font-family: 'Yeseva One', serif; font-weight: 400; font-size: 24px; margin-bottom: 16px; }
+.tr-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 10px; border: 0; background: #27472f; color: #f3f0dc; font: 700 15px 'Karla', sans-serif; box-shadow: 0 8px 20px -10px rgba(29,51,36,.7); }
+.tr-btn:hover { background: #335c3d; }
+
+.tr { font-family: 'Karla', sans-serif; text-align: left; --rise: 0px; }
+.tr .tr-sec, .tr .tr-end { padding: 84px 28px 64px; }
+.tr-hero { min-height: 100svh; overflow: hidden; display: flex; align-items: flex-start; padding-top: 14svh !important; background: #f7e8c8; }
+.tr-hero-in { text-shadow: 0 1px 12px rgba(247,232,200,.8); }
+.tr-hero-in { position: relative; z-index: 2; }
+.tr-pre { font-size: 15px; letter-spacing: .08em; }
+.tr-names { font-family: 'Yeseva One', serif; font-weight: 400; font-size: 58px; line-height: 1.02; margin: 10px 0 14px; }
+.tr-names span { font-family: 'Karla', sans-serif; font-style: italic; font-size: 26px; color: var(--deep); }
+.tr-date { font-size: 17px; font-weight: 600; }
+.tr-hash { font-size: 15px; color: var(--deep); }
+
+/* tepi atas berbentuk tangga pematang; warna makin tua ke bawah */
+.tr .tr-sec:not(.tr-hero), .tr .tr-end { clip-path: polygon(0 calc(36px + var(--rise)), 25% calc(36px + var(--rise)), 25% calc(18px + var(--rise)), 50% calc(18px + var(--rise)), 50% var(--rise), 100% var(--rise), 100% 100%, 0 100%); margin-top: -36px; }
+.tr-quote { background: #e2ebcf; }
+.tr-people { background: #eef1e6; }
+.tr-events { background: #d3e2bd; }
+.tr-gallery { background: #eef1e6; }
+.tr-rsvp { background: #dfe8d6; }
+.tr-gift { background: #c4d6a9; }
+.tr-sec:not(.tr-hero):nth-of-type(odd) { text-align: right; }
+.tr-sec:not(.tr-hero):nth-of-type(odd) .tr-person, .tr-sec:not(.tr-hero):nth-of-type(odd) .tr-place, .tr-sec:not(.tr-hero):nth-of-type(odd) .tr-ev p { justify-content: flex-end; margin-left: auto; }
+
+.tr-h { font-family: 'Yeseva One', serif; font-weight: 400; font-size: 36px; line-height: 1.1; margin-bottom: 18px; color: var(--bg); }
+.tr-quote { font-size: 19px; line-height: 1.65; }
+.tr-quote p.tr-quote, .tr-sec .tr-quote { font-style: italic; }
+p.tr-quote { max-width: 32ch; display: inline-block; }
+.tr-src { font-size: 14px; color: var(--deep); margin-top: 10px; }
+.tr-lead { font-size: 17px; line-height: 1.65; max-width: 34ch; display: inline-block; }
+
+.tr-person { display: flex; flex-direction: column; margin-top: 28px; }
+.tr-sec:not(.tr-hero):nth-of-type(odd) .tr-person { align-items: flex-end; }
+.tr-photo { width: 200px; height: 250px; border-radius: 120px 120px 0 120px; overflow: hidden; border: 4px solid #f7e8c8; box-shadow: 10px 10px 0 var(--accent); }
+.tr-photo svg { width: 100%; height: 100%; display: block; }
+.tr-person h3 { font-family: 'Yeseva One', serif; font-weight: 400; font-size: 26px; margin-top: 18px; }
+.tr-person p { font-size: 14px; }
+.tr-amp { font-family: 'Yeseva One', serif; font-size: 44px; color: var(--deep); margin: 16px 0 -6px; }
+
+.tr-ev { background: rgba(255,255,255,.55); border-left: 6px solid var(--bg); padding: 18px 18px; margin: 14px 0; }
+.tr-sec:not(.tr-hero):nth-of-type(odd) .tr-ev { border-left: 0; border-right: 6px solid var(--bg); }
+.tr-ev h3 { font-family: 'Yeseva One', serif; font-weight: 400; font-size: 26px; }
+.tr-ev p, .tr-place { display: flex; align-items: center; gap: 8px; font-size: 15px; margin-top: 4px; }
+.tr-place { margin: 18px 0; }
+.tr .pbtn { border-radius: 10px; }
+.tr-cd .cd div { border-radius: 10px; text-align: center; }
+
+.tr-gal { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.tr-gal div { aspect-ratio: 3 / 4; display: grid; place-items: center; background: linear-gradient(170deg, #86a865, var(--bg)); }
+.tr-gal div:nth-child(2n) { background: linear-gradient(190deg, #b9913f, var(--deep)); }
+.tr-gal div:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+.tr .form { text-align: left; }
+.tr .form input, .tr .form select, .tr .form textarea { border-radius: 10px; border-color: rgba(29,51,36,.35); font-family: 'Karla', sans-serif; }
+.tr .rek { background: var(--bg); border-radius: 12px; text-align: center; }
+
+.tr-end { background: var(--bg) !important; color: #eef1e6; padding-bottom: 96px !important; }
+.tr-end h2 { font-family: 'Yeseva One', serif; font-weight: 400; font-size: 44px; }
+.tr-end p { font-size: 17px; line-height: 1.6; max-width: 32ch; margin-top: 8px; }

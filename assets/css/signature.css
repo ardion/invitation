@@ -1,0 +1,30 @@
+/* =========================================================
+   Template signature (assets/js/signature.js)
+   Warna dari tema lewat variabel: --bg --paper --ink --accent --deep --sky
+   Konten tidak pernah disembunyikan lewat CSS: status awal animasi
+   diatur oleh GSAP, jadi tanpa JS/GSAP semuanya tetap terbaca.
+   ========================================================= */
+
+/* ---------- Kerangka bersama ---------- */
+.sg-cover { position: fixed; inset: 0; z-index: 40; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--bg); color: #fff; }
+.sg-cover.gone { display: none; }
+.sg { position: relative; max-width: 480px; margin: 0 auto; min-height: 100vh; background: var(--paper); color: var(--ink); box-shadow: 0 0 80px rgba(0,0,0,.35); overflow-x: clip; text-align: center; }
+.sg section, .sg footer { position: relative; padding: 72px 26px; }
+.sg-pre { font-family: 'DM Sans', sans-serif; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; }
+.sg-to { font-family: 'DM Sans', sans-serif; font-size: 14px; opacity: .9; }
+.sg-guest { font-size: 26px; font-weight: 600; word-break: break-word; }
+.sg .form { margin-top: 18px; }
+/* transform dipegang GSAP; transition CSS pada transform akan bentrok */
+.sg .pbtn { transition: filter .2s; }
+.sg h3 { font-weight: 600; }
+.sg p .ic, .sg .ic { flex: none; }
+
+/* galeri & catatan kaki bersama (surat, tiket) */
+.sr-gal, .tk-gal { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.sr-gal div, .tk-gal div { aspect-ratio: 3 / 4; display: grid; place-items: center; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 13px; }
+.sr-gal div:first-child, .tk-gal div:first-child { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
+.sr-end small, .tk-end small { display: block; margin-top: 28px; font-family: 'DM Sans', sans-serif; font-size: 12px; opacity: .7; }
+
+/* bersama: catatan kaki, galeri dasar */
+.sg-credit { display: block; margin-top: 28px; font-family: 'DM Sans', sans-serif; font-size: 12px; opacity: .7; }
+.sg [data-ph] { color: #fff; font-family: 'DM Sans', sans-serif; font-size: 13px; }
