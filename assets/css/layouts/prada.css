@@ -49,7 +49,9 @@
 .pp-wy img { filter: drop-shadow(0 8px 10px rgba(0,0,0,.35)); }
 
 .pp-stage { position: relative; display: flex; align-items: flex-end; justify-content: center; gap: 12px; margin: 16px 0 4px; }
-.pp-stage .pp-wy { width: 80px; flex: none; z-index: 3; }
+/* tinggi wayang disamakan: rasio gambar putra 0.491, putri 0.5625, jadi lebar putri = 1.146 x putra */
+.pp-stage .pp-wy { width: 74px; flex: none; z-index: 3; }
+.pp-stage .pp-wy.putri { width: 85px; }
 
 /* adegan pembuka */
 .pp-open { position: absolute; inset: 0; z-index: 20; visibility: hidden; opacity: 0; overflow: hidden; background: #efe3d6; perspective: 900px; }
@@ -114,7 +116,8 @@
 /* 3. mempelai */
 .pp-person { margin: 30px auto 0; max-width: 340px; }
 .pp-person-art { display: grid; grid-template-columns: 34% 1fr; align-items: end; gap: 12px; }
-.pp-person-art .pp-wy { order: -1; }
+.pp-person-art .pp-wy { order: -1; width: 87%; justify-self: end; }
+.pp-person-art .pp-wy.putri { width: 100%; justify-self: start; }
 .pp-person.rev .pp-person-art { grid-template-columns: 1fr 34%; }
 .pp-person.rev .pp-person-art .pp-wy { order: 2; }
 .pp-person h3 { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 24px; color: #31170a; margin-top: 16px; }
@@ -167,8 +170,10 @@
 .pp-end .pp-tree { width: 32%; z-index: 6; }
 .pp-end .pp-tree.l { left: -6%; }
 .pp-end .pp-tree.r { right: -6%; }
-.pp-pair { display: flex; align-items: flex-end; justify-content: center; gap: 12px; margin-top: 26px; height: 250px; }
-.pp-pair .pp-wy { width: 26%; }
+/* jarak 18px: gunungan bergoyang ±2°, sudut kotaknya bergeser ±5px, jadi jarak terlihat tetap ≥12px */
+.pp-pair { display: flex; align-items: flex-end; justify-content: center; gap: 18px; margin-top: 26px; height: 250px; }
+.pp-pair .pp-wy { width: 24%; }
+.pp-pair .pp-wy.putri { width: 27.5%; }
 .pp-pair .pp-gn.mid { position: relative; width: 28%; align-self: flex-end; }
 .pp-end .sg-credit { z-index: 5; position: absolute; left: 0; right: 0; bottom: 18px; display: block; color: #6e5a52; }
 
